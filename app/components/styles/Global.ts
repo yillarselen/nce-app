@@ -28,7 +28,13 @@ const GlobalStyles = createGlobalStyle`
   p {
     line-height: 1.5rem;
   }
-
+ 
+  ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ 
   main {
     flex-grow: 1;
   }
