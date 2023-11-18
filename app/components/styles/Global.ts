@@ -1,7 +1,9 @@
 import { createGlobalStyle, css } from "styled-components";
 
-const styles = css`
-  * {
+const styles = css``;
+
+const GlobalStyles = createGlobalStyle`
+    * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -13,14 +15,23 @@ const styles = css`
     overflow-x: hidden;
   }
 
+  body {
+    background-color: ${({ theme }) => theme.colors.white};
+    font-size: 1rem;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
   }
-`;
 
-const GlobalStyles = createGlobalStyle`
-  ${styles}
+  p {
+    line-height: 1.5rem;
+  }
+
+  main {
+    flex-grow: 1;
+  }
 `;
 
 export default GlobalStyles;

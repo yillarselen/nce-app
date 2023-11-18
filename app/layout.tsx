@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import Providers from "./components/Providers";
-
-const inter = Inter({ subsets: ["latin"] });
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "nc-commerce",
   description: "E-commerce assignment",
 };
+
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function RootLayout({
   children,
@@ -15,10 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={poppins.className}>
         <Providers>
+          <Header />
           <main>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>
