@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export const Flex = styled.div`
   display: flex;
-  align-items: center;
+`;
 
-  & > div,
-  & > ul {
-    flex: 1;
-  }
+export const FlexBetween = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

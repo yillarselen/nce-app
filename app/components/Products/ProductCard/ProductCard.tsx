@@ -7,12 +7,12 @@ import { Button } from "../../styles/Button.styled";
 import {
   Card,
   CardContainer,
-  ImageContainer,
   CardFooter,
   FavButton,
   ProductTitle,
-  PriceLabel,
 } from "./ProductCard.styled";
+import { ImageContainer } from "../../styles/ImageContainer.styled";
+import { PriceLabel } from "../../styles/PriceLabel.styled";
 
 const ProductCard = () => {
   const theme = useTheme();
@@ -48,9 +48,9 @@ const ProductCard = () => {
       <CardFooter>
         <PriceLabel>$3000.00</PriceLabel>
         <div>
-          <Button type="primary">
+          <Button type="primary" size="sm">
             <PiShoppingCart size={20} />
-            <span style={{ marginLeft: ".35rem" }}>Add to bag</span>
+            <span>Add to bag</span>
           </Button>
         </div>
       </CardFooter>

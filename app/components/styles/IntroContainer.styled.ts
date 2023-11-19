@@ -13,7 +13,7 @@ export const IntroContainer = styled.div`
   }
 
   p {
-    color: ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.slate500};
     line-height: 1.85rem;
 
     @media (min-width: ${({ theme }) => theme.screens.lg}) {

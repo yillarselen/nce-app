@@ -36,14 +36,26 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
 }
 
-button {
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
+  button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
  
   main {
     flex-grow: 1;
+  }
+
+  h3 {
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: ${({ theme }) => theme.colors.slate500};
   }
 `;
 

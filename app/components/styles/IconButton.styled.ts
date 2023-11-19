@@ -6,22 +6,37 @@ interface ButtonType {
   hoverColor?: string;
 }
 
-export const IconButton = styled.button<{ type?: ButtonType }>`
+type size = "sm" | "md";
+
+export const IconButton = styled.button<{
+  type?: ButtonType;
+  size?: size;
+  $border?: boolean;
+}>`
   position: relative;
   display: flex;
-  width: 3rem;
-  height: 3rem;
+  width: ${(props) =>
+    props.size === "sm" ? "1.25rem" : props.size === "md" ? "2rem" : "3rem"};
+  height: ${(props) =>
+    props.size === "sm" ? "1.25rem" : props.size === "md" ? "2rem" : "3rem"};
   border-radius: 50%;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: none;
+  border: ${(props) =>
+    props.$border ? `1px solid ${props.theme.colors.darkgray}` : "none"};
   background-color: transparent;
-  font-size: 1.5rem;
+  font-size: ${(props) =>
+    props.size === "sm" ? ".75rem" : props.size === "md" ? "1rem" : "1.5rem"};
   color: ${(props) => props.type?.color || props.theme.colors.darkgray};
 
   &:hover {
     background-color: ${(props) => props.type?.hoverBg || "transparent"};
     fill: ${(props) => props.type?.hoverColor || "transparent"};
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
   }
 `;
