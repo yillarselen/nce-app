@@ -1,13 +1,27 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Navigation, Nav, NavItem, NavLink, Logo } from "./Navbar.styled";
 import UserMenu from "../UserMenu/UserMenu";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import SideMenu from "../SideMenu/SideMenu";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <Navigation>
+      <HamburgerMenu onClick={toggleMenu} />
       <Logo>Logo</Logo>
+      <SideMenu open={menuOpen} onClose={closeMenu} />
       <Nav>
         <NavItem>
           <div>

@@ -13,9 +13,13 @@ export const Logo = styled.div`
 `;
 
 export const Nav = styled.ul`
-  align-items: center;
-  display: flex;
-  flex: 2 1;
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    align-items: center;
+    flex: 2 1;
+    display: flex;
+  }
 `;
 
 export const NavItem = styled.li`
