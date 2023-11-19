@@ -1,15 +1,17 @@
 import { styled } from "styled-components";
 
 interface ButtonType {
-  color: string;
-  hover: string;
+  color?: string;
+  hoverBg?: string;
+  hoverColor?: string;
 }
 
 export const IconButton = styled.button<{ type?: ButtonType }>`
+  position: relative;
   display: flex;
   width: 3rem;
   height: 3rem;
-  border-radius: 9999px;
+  border-radius: 50%;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -19,6 +21,7 @@ export const IconButton = styled.button<{ type?: ButtonType }>`
   color: ${(props) => props.type?.color || props.theme.colors.darkgray};
 
   &:hover {
-    background-color: ${(props) => props.type?.hover || "transparent"};
+    background-color: ${(props) => props.type?.hoverBg || "transparent"};
+    fill: ${(props) => props.type?.hoverColor || "transparent"};
   }
 `;

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "E-commerce assignment",
 };
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
 export default function RootLayout({
   children,

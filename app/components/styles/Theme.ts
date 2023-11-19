@@ -1,10 +1,10 @@
 const theme = {
   colors: {
-    white: "#fff",
     black: "#171717",
     gray: "#64748b",
     darkgray: "#334155",
     lightgray: "#f1f5f9",
+    green: "#27c560",
 
     nav: {
       link: "#334155",
@@ -15,7 +15,12 @@ const theme = {
   buttons: {
     nav: {
       color: "#334155",
-      hover: "#f1f5f9",
+      hoverBg: "#f1f5f9",
+    },
+    fav: {
+      color: "#334155",
+      hoverBg: "#fff",
+      hoverColor: "red",
     },
   },
   screens: {

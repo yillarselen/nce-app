@@ -29,13 +29,13 @@ export const NavItem = styled.li`
 `;
 
 export const NavLink = styled.a`
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   align-items: center;
   display: inline-flex;
   color: ${({ theme }) => theme.colors.nav.link};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.nav.hover};
-    border-radius: 9999px;
+    border-radius: 2rem;
   }
 `;

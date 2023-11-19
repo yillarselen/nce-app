@@ -23,6 +23,7 @@ const GlobalStyles = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
   }
 
   p {
@@ -33,6 +34,12 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
  
   main {
