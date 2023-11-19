@@ -4,6 +4,7 @@ import { Flex } from "../styles/Flex.styled";
 import { IntroContainer } from "../styles/IntroContainer.styled";
 import { CartList, Seperator } from "./CartContainer.styled";
 import CartItem from "./CartItem/CartItem";
+import OrderSummary from "./OrderSummary/OrderSummary";
 
 export default function CartContainer() {
   return (
@@ -15,7 +16,7 @@ export default function CartContainer() {
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </IntroContainer>
-      <Flex>
+      <Flex $smBlock>
         <CartList>
           <CartItem />
           <CartItem />
@@ -23,6 +24,7 @@ export default function CartContainer() {
           <CartItem />
         </CartList>
         <Seperator />
+        <OrderSummary />
       </Flex>
     </Container>
   );

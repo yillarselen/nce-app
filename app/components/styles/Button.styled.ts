@@ -4,19 +4,31 @@ type ButtonType = "primary" | "secondary" | "danger";
 
 type size = "sm" | "md" | "lg";
 
-export const Button = styled.button<{ type?: ButtonType; size?: string }>`
+const properties = {
+  sm: {
+    fontSize: ".85rem",
+    padding: ".5rem 1rem",
+  },
+  md: {
+    fontSize: ".95rem",
+    padding: ".7rem 1.2rem",
+  },
+  lg: {
+    fontSize: "1rem",
+    padding: "1rem 1.5rem",
+  },
+};
+
+export const Button = styled.button<{ type?: ButtonType; size?: size }>`
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: ${({ size }) =>
-    size === "sm"
-      ? ".85rem"
-      : size === "md"
-      ? ".95rem"
-      : size === "lg"
-      ? "1.2rem"
-      : "1rem"};
-  padding: ${({ type }) => type !== "danger" && "0.5rem 1rem"};
+    size ? properties[size].fontSize : properties.md.fontSize};
+  padding: ${({ size, type }) =>
+    type !== "danger" && size
+      ? properties[size].padding
+      : properties.md.padding};
   border: ${(props) =>
     props.type === "secondary"
       ? `1px solid ${props.theme.colors.slate500}`

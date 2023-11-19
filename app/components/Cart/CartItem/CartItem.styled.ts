@@ -43,6 +43,7 @@ export const ItemDetailsContainer = styled.div`
     justify-content: space-between;
     margin-top: auto;
     padding-top: 1rem;
+    align-items: center;
 
     svg {
       margin-right: 0.4rem;
