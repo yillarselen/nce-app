@@ -4,7 +4,7 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ["picsum.photos"],
+    domains: ["source.unsplash.com"],
   },
 };
 

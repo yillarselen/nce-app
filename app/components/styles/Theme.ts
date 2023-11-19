@@ -3,7 +3,7 @@ const theme = {
     black: "#171717",
     gray: "#64748b",
     darkgray: "#334155",
-    lightgray: "#f1f5f9",
+    lightgray: "#e9e9e9",
     green: "#27c560",
 
     nav: {

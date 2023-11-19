@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IconButton } from "../styles/IconButton.styled";
+import { IconButton } from "../../styles/IconButton.styled";
 
 export const Card = styled.div`
   position: relative;
@@ -19,7 +19,7 @@ export const ImageContainer = styled.div`
   flex-shrink: 0;
   border-radius: 1.5rem;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 
   img {
     object-fit: cover;

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useTheme } from "styled-components";
 import Link from "next/link";
 import { PiHeartLight, PiShoppingCart } from "react-icons/pi";
-import { Button } from "../styles/Button.styled";
+import { Button } from "../../styles/Button.styled";
 import {
   Card,
   CardContainer,
@@ -26,10 +26,15 @@ const ProductCard = () => {
         <Link href="/product-detail">
           <ImageContainer>
             <Image
-              src="https://picsum.photos/600/300"
-              layout="responsive"
-              width={500}
-              height={500}
+              src="https://source.unsplash.com/random/300×300.png"
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+              priority
+              width={300}
+              height={300}
               alt=""
             />
           </ImageContainer>
@@ -41,7 +46,7 @@ const ProductCard = () => {
       </CardContainer>
 
       <CardFooter>
-        <PriceLabel>$30.00</PriceLabel>
+        <PriceLabel>$3000.00</PriceLabel>
         <div>
           <Button type="primary">
             <PiShoppingCart size={20} />

@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
-  margin-top: 2rem;
+  gap: 3.5rem 2.5rem;
+  margin: 2rem 0;
 
   @media (min-width: ${({ theme }) => theme.screens.md}) {
     grid-template-columns: repeat(2, 1fr);
