@@ -1,8 +1,9 @@
 const theme = {
   colors: {
     black: "#171717",
+    gray: "#e9e9e9",
     darkgray: "#334155",
-    lightgray: "#e9e9e9",
+    lightgray: "#f5f5f5",
     green: "#27c560",
     slate300: "#cbd5e1",
     slate500: "#64748b",

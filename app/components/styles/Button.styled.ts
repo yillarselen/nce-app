@@ -26,16 +26,14 @@ export const Button = styled.button<{ type?: ButtonType; size?: size }>`
   font-size: ${({ size }) =>
     size ? properties[size].fontSize : properties.md.fontSize};
   padding: ${({ size, type }) =>
-    type !== "danger" && size
-      ? properties[size].padding
-      : properties.md.padding};
+    type !== "danger" && size ? properties[size].padding : 0};
   border: ${(props) =>
-    props.type === "secondary"
-      ? `1px solid ${props.theme.colors.slate500}`
+    props.type !== "danger"
+      ? `1px solid ${props.theme.colors.slate300}`
       : "none"};
   border-radius: 2rem;
   box-shadow: ${({ type }) =>
-    type === "primary" && "0 0.125rem 0.25rem rgba(0, 0, 0, 0.1)"};
+    type !== "danger" && "0 0.125rem 0.25rem rgba(0, 0, 0, 0.1)"};
   background: ${(props) =>
     props.type === "primary"
       ? props.theme.colors.black
@@ -48,4 +46,14 @@ export const Button = styled.button<{ type?: ButtonType; size?: size }>`
       : props.type === "secondary"
       ? props.theme.colors.black
       : "red"};
+`;
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  gap: 1rem;
+
+  button,
+  a {
+    width: 100%;
+  }
 `;

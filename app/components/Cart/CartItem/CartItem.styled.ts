@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const StyledCartItem = styled.div`
+export const StyledCartItem = styled.div<{ size?: string }>`
   position: relative;
   display: flex;
-  padding: 2rem 0;
-  border-top: 1px solid ${({ theme }) => theme.colors.lightgray};
+  padding: ${({ size }) => (size === "sm" ? "1.3rem 0" : "2rem 0")};
+  border-top: 1px solid ${({ theme }) => theme.colors.gray};
 
   &:first-child {
     border-top: none;
@@ -20,7 +20,6 @@ export const ItemName = styled.div`
   @media (min-width: ${({ theme }) => theme.screens.md}) {
     display: flex;
     flex-direction: column;
-    flex: 2 1;
   }
 `;
 
@@ -54,7 +53,10 @@ export const ItemDetailsContainer = styled.div`
 export const ProductSelectionContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  flex: 2;
+
+  > div:last-child {
+    margin-left: 3.5rem;
+  }
 `;
 
 export const ItemProperties = styled.div`

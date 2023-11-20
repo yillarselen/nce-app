@@ -10,7 +10,7 @@ export const CartList = styled.div`
 
 export const Seperator = styled.div`
   display: flex;
-  border-left: 1px solid ${({ theme }) => theme.colors.lightgray};
+  border-left: 1px solid ${({ theme }) => theme.colors.gray};
   margin: 0 2.5rem;
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {

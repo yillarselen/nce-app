@@ -13,7 +13,7 @@ export const ListItem = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 0.9rem;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.lightgray};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
   padding: 1rem 0;
 
   strong {

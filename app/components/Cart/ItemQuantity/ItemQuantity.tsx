@@ -16,8 +16,6 @@ export default function ItemQuantity() {
     if (quantity > 0) setQuantity(quantity - 1);
   }
 
-  console.log(!quantity);
-
   return (
     <>
       <NumberInput>

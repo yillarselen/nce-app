@@ -16,11 +16,18 @@ import { Button } from "../../styles/Button.styled";
 import { PiTrash, PiPaintBucket, PiTag } from "react-icons/pi";
 import { StyledBadge } from "../../styles/Badge.styled";
 
-export default function CartItem() {
+interface CartItemProps {
+  size?: string;
+}
+
+export default function CartItem({ size }: CartItemProps) {
   return (
-    <StyledCartItem>
+    <StyledCartItem size={size}>
       <Link href="/product-detail">
-        <ImageContainer width="8" height="9">
+        <ImageContainer
+          width={size === "sm" ? "5" : "8"}
+          height={size === "sm" ? "6" : "9"}
+        >
           <Image
             src="https://source.unsplash.com/random/300×300"
             sizes="100vw"
@@ -54,12 +61,12 @@ export default function CartItem() {
             </ItemProperties>
           </ItemName>
           <ProductSelectionContainer>
-            <ItemQuantity />
+            {size !== "sm" && <ItemQuantity />}
             <PriceLabel>$300.00</PriceLabel>
           </ProductSelectionContainer>
         </FlexBetween>
         <footer>
-          <StyledBadge>In Stock</StyledBadge>
+          <StyledBadge>{size === "sm" ? "Qty: 1" : "In Stock"}</StyledBadge>
           <Button type="danger" size="md">
             <PiTrash />
             <span>Remove</span>
