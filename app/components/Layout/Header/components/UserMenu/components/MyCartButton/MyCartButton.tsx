@@ -12,11 +12,13 @@ import { useTheme } from "styled-components";
 import Link from "next/link";
 import { FlexBetween } from "@/app/components/styles/Flex.styled";
 import { Button, ButtonGroup } from "@/app/components/styles/Button.styled";
+import { useShoppingCartContext } from "@/app/context/shoppingcart-context";
 
 export default function CartContent() {
   const [isOpen, setIsOpen] = useState(false);
   const cartRef = useRef<HTMLDivElement>(null);
   const theme = useTheme();
+  const { cartItems, total } = useShoppingCartContext();
 
   const toggleCart = (event: MouseEvent) => {
     if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
@@ -45,7 +47,7 @@ export default function CartContent() {
         >
           <PiShoppingCart />
           {/* Check count */}
-          <ShoppingCartCount>3</ShoppingCartCount>
+          <ShoppingCartCount>{cartItems.length}</ShoppingCartCount>
         </IconButton>
       </CartButton>
 
@@ -53,7 +55,7 @@ export default function CartContent() {
         <Link href="/cart" passHref legacyBehavior>
           <IconButton as="a" type={theme.buttons.nav}>
             <PiShoppingCart />
-            <ShoppingCartCount>3</ShoppingCartCount>
+            <ShoppingCartCount>{cartItems.length}</ShoppingCartCount>
           </IconButton>
         </Link>
       </CartButtonLink>
@@ -61,15 +63,18 @@ export default function CartContent() {
         <CartContainer>
           <h2>Shopping Cart</h2>
           <div>
-            <CartItem size="sm" />
-            <CartItem size="sm" />
-            <CartItem size="sm" />
-            <CartItem size="sm" />
+            {cartItems.length ? (
+              cartItems.map((item) => (
+                <CartItem cartItem={item} size="sm" key={item.product.id} />
+              ))
+            ) : (
+              <h3>Your cart is empty :(</h3>
+            )}
           </div>
           <CartFooter>
             <FlexBetween>
               <span>Total</span>
-              <span>$300.00</span>
+              <span>${total}</span>
             </FlexBetween>
             <ButtonGroup>
               <Link href="/cart" passHref legacyBehavior>

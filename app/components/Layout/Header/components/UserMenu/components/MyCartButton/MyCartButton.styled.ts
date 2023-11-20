@@ -58,7 +58,7 @@ export const CartButtonLink = styled.div`
 
 export const CartFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.lightgray};
-  margin: 0 -2rem -2rem -2rem;
+  margin: 1.5rem -2rem -2rem -2rem;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   padding: 1.5rem 2rem;

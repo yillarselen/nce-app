@@ -14,6 +14,7 @@ import {
 import { ImageContainer } from "../../../styles/ImageContainer.styled";
 import { PriceLabel } from "../../../styles/PriceLabel.styled";
 import { Product } from "@/app/types/ProductTypes";
+import { useShoppingCartContext } from "@/app/context/shoppingcart-context";
 
 interface ProductCardProps {
   product: Product;
@@ -21,6 +22,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const theme = useTheme();
+  const { handleAddToCart } = useShoppingCartContext();
 
   return (
     <Card>
@@ -53,7 +55,11 @@ export default function ProductCard({ product }: ProductCardProps) {
       <CardFooter>
         <PriceLabel>${product.price}</PriceLabel>
         <div>
-          <Button type="primary" size="sm">
+          <Button
+            onClick={() => handleAddToCart(product)}
+            type="primary"
+            size="sm"
+          >
             <PiShoppingCart size={20} />
             <span>Add to bag</span>
           </Button>

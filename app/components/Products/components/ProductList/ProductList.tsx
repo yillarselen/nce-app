@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Grid } from "../../../styles/Grid.styled";
-import StyledProductCard from "../ProductCard/ProductCard";
+import ProductCard from "../ProductCard/ProductCard";
 import { useProductsContext } from "@/app/context/products-context";
 
 export default function ProductList() {
@@ -11,7 +11,7 @@ export default function ProductList() {
   return (
     <Grid>
       {products.map((product) => (
-        <StyledProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} />
       ))}
     </Grid>
   );

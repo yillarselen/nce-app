@@ -1,6 +1,5 @@
 import { promises as fs } from "fs";
 import Products from "./components/Products/Products";
-import { useProductsContext } from "./context/products-context";
 
 export async function getProducts() {
   const file = await fs.readFile(process.cwd() + "/app/data/data.json", "utf8");

@@ -1,4 +1,5 @@
 "use client";
+import { useShoppingCartContext } from "@/app/context/shoppingcart-context";
 import { Container } from "../styles/Container.styled";
 import { Flex } from "../styles/Flex.styled";
 import { IntroContainer } from "../styles/IntroContainer.styled";
@@ -7,6 +8,8 @@ import CartItem from "./components/CartItem/CartItem";
 import OrderSummary from "./components/OrderSummary/OrderSummary";
 
 export default function CartContainer() {
+  const { cartItems } = useShoppingCartContext();
+
   return (
     <Container>
       <IntroContainer>
@@ -18,10 +21,9 @@ export default function CartContainer() {
       </IntroContainer>
       <Flex $smBlock>
         <CartList>
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {cartItems.map((item) => (
+            <CartItem cartItem={item} key={item.product.id} />
+          ))}
         </CartList>
         <Seperator />
         <OrderSummary />

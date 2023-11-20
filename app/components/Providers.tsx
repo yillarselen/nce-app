@@ -6,6 +6,7 @@ import StyledComponentsRegistry from "../lib/registry";
 import GlobalStyles from "./styles/Global";
 import theme from "./styles/Theme";
 import ProductsContextProvider from "../context/products-context";
+import ShoppingCartContextProvider from "../context/shoppingcart-context";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -13,7 +14,9 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <ProductsContextProvider>
-          <Layout>{children}</Layout>
+          <ShoppingCartContextProvider>
+            <Layout>{children}</Layout>
+          </ShoppingCartContextProvider>
         </ProductsContextProvider>
       </ThemeProvider>
     </StyledComponentsRegistry>
