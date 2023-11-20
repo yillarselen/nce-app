@@ -13,6 +13,7 @@ interface ShoppingCartContext {
   handleAddToCart: (item: Product) => void;
   handleRemoveFromCart: (item: Product) => void;
   total: number;
+  itemQuantity: number;
 }
 
 export const ShoppingCartContext = createContext<ShoppingCartContext | null>(
@@ -24,6 +25,7 @@ export default function ShoppingCartContextProvider({
 }: ShoppingCartContextProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[] | []>([]);
   const [total, setTotal] = useState<number>(0);
+  const [itemQuantity, setItemQuantity] = useState<number>(0);
 
   function handleAddToCart(currentItem: Product) {
     const items = [...cartItems];
@@ -43,8 +45,11 @@ export default function ShoppingCartContextProvider({
       items.push({ product: currentItem, quantity: 1 });
     }
 
+    const quantity = items.reduce((total, obj) => obj.quantity + total, 0);
+
     setCartItems(items);
     setTotal(totalPrice + currentItem.price);
+    setItemQuantity(quantity);
   }
 
   function handleRemoveFromCart(currentItem: Product) {
@@ -56,9 +61,14 @@ export default function ShoppingCartContextProvider({
       (total, obj) => obj.product.price * obj.quantity + total,
       0
     );
+    const quantity = filteredItems.reduce(
+      (total, obj) => obj.quantity + total,
+      0
+    );
 
     setCartItems(filteredItems);
     setTotal(totalPrice);
+    setItemQuantity(quantity);
   }
 
   return (
@@ -68,6 +78,7 @@ export default function ShoppingCartContextProvider({
         handleAddToCart,
         handleRemoveFromCart,
         total,
+        itemQuantity,
       }}
     >
       {children}

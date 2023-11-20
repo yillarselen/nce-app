@@ -67,7 +67,7 @@ export default function CartItem({ cartItem, size }: CartItemProps) {
             </ItemProperties>
           </ItemName>
           <ProductSelectionContainer>
-            {size !== "sm" && <ItemQuantity />}
+            {size !== "sm" && <ItemQuantity itemQuantity={cartItem.quantity} />}
             <PriceLabel>${cartItem.product.price}</PriceLabel>
           </ProductSelectionContainer>
         </FlexBetween>

@@ -18,7 +18,7 @@ export default function CartContent() {
   const [isOpen, setIsOpen] = useState(false);
   const cartRef = useRef<HTMLDivElement>(null);
   const theme = useTheme();
-  const { cartItems, total } = useShoppingCartContext();
+  const { cartItems, total, itemQuantity } = useShoppingCartContext();
 
   const toggleCart = (event: MouseEvent) => {
     if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
@@ -47,7 +47,7 @@ export default function CartContent() {
         >
           <PiShoppingCart />
           {/* Check count */}
-          <ShoppingCartCount>{cartItems.length}</ShoppingCartCount>
+          <ShoppingCartCount>{itemQuantity}</ShoppingCartCount>
         </IconButton>
       </CartButton>
 
@@ -55,7 +55,7 @@ export default function CartContent() {
         <Link href="/cart" passHref legacyBehavior>
           <IconButton as="a" type={theme.buttons.nav}>
             <PiShoppingCart />
-            <ShoppingCartCount>{cartItems.length}</ShoppingCartCount>
+            <ShoppingCartCount>{itemQuantity}</ShoppingCartCount>
           </IconButton>
         </Link>
       </CartButtonLink>

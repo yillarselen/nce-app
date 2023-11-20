@@ -5,8 +5,12 @@ import { IconButton } from "../../../styles/IconButton.styled";
 import { PiMinus, PiPlus } from "react-icons/pi";
 import { useState } from "react";
 
-export default function ItemQuantity() {
-  const [quantity, setQuantity] = useState(0);
+interface ItemQuantityProps {
+  itemQuantity: number;
+}
+
+export default function ItemQuantity({ itemQuantity }: ItemQuantityProps) {
+  const [quantity, setQuantity] = useState(itemQuantity);
 
   function increment() {
     setQuantity(quantity + 1);
