@@ -5,6 +5,7 @@ import { StyledUserMenu } from "./UserMenu.styled";
 import { PiHeart, PiMagnifyingGlass } from "react-icons/pi";
 import { IconButton } from "@/app/components/styles/IconButton.styled";
 import { useTheme } from "styled-components";
+import MyCartButton from "./components/MyCartButton/MyCartButton";
 
 // TODO: Change icons
 export default function UserMenu() {
@@ -18,6 +19,7 @@ export default function UserMenu() {
       <IconButton type={theme.buttons.nav}>
         <PiHeart />
       </IconButton>
+      <MyCartButton />
     </StyledUserMenu>
   );
 }
