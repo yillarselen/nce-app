@@ -1,7 +1,7 @@
 "use client";
 
 import { NumberInput, QuantitySelect } from "./ItemQuantity.styled";
-import { IconButton } from "../../styles/IconButton.styled";
+import { IconButton } from "../../../styles/IconButton.styled";
 import { PiMinus, PiPlus } from "react-icons/pi";
 import { useState } from "react";
 

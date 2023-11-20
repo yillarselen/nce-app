@@ -4,7 +4,7 @@ export const SideMenuContainer = styled.div<{ open: boolean }>`
   width: 300px;
   height: 100vh;
   background-color: #fff;
-  border-right: 1px solid ${({ theme }) => theme.colors.lightgray};
+  border-right: 1px solid ${({ theme }) => theme.colors.gray};
   position: fixed;
   top: 0;
   left: ${({ open }) => (open ? "0" : "-300px")};

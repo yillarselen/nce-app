@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StyledSelect } from "../../styles/Select.styled";
+import { StyledSelect } from "../../../styles/Select.styled";
 
 export const NumberInput = styled.div`
   display: none;

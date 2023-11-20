@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "../../styles/Button.styled";
+import { Button } from "../../../styles/Button.styled";
 import { ListItem, List } from "./OrderSummary.styled";
 
 export default function OrderSummary() {

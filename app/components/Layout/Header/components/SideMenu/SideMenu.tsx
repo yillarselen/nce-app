@@ -1,6 +1,6 @@
 // SideMenu.tsx
 import Link from "next/link";
-import React, { FC } from "react";
+import React from "react";
 import {
   SideMenuContainer,
   SideMenuItem,
@@ -14,7 +14,7 @@ interface SideMenuProps {
   onClose: () => void;
 }
 
-const SideMenu: FC<SideMenuProps> = ({ open, onClose }) => {
+export default function HamburgerMenu({ open, onClose }: SideMenuProps) {
   return (
     <>
       <Overlay open={open} onClick={onClose} />
@@ -22,24 +22,22 @@ const SideMenu: FC<SideMenuProps> = ({ open, onClose }) => {
         <CloseButton onClick={onClose}>&times;</CloseButton>
         <SideMenuList>
           <SideMenuItem>
-            <Link href="#">Men</Link>
+            <Link href="/">Men</Link>
           </SideMenuItem>
           <SideMenuItem>
-            <Link href="#">Women</Link>
+            <Link href="/">Women</Link>
           </SideMenuItem>
           <SideMenuItem>
-            <Link href="#">Kids</Link>
+            <Link href="/">Kids</Link>
           </SideMenuItem>
           <SideMenuItem>
-            <Link href="#">Sport</Link>
+            <Link href="/">Sport</Link>
           </SideMenuItem>
           <SideMenuItem>
-            <Link href="#">Accessories</Link>
+            <Link href="/">Accessories</Link>
           </SideMenuItem>
         </SideMenuList>
       </SideMenuContainer>
     </>
   );
-};
-
-export default SideMenu;
+}

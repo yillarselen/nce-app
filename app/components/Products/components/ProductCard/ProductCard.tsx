@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useTheme } from "styled-components";
 import Link from "next/link";
 import { PiHeartLight, PiShoppingCart } from "react-icons/pi";
-import { Button } from "../../styles/Button.styled";
+import { Button } from "../../../styles/Button.styled";
 import {
   Card,
   CardContainer,
@@ -11,8 +11,8 @@ import {
   FavButton,
   ProductTitle,
 } from "./ProductCard.styled";
-import { ImageContainer } from "../../styles/ImageContainer.styled";
-import { PriceLabel } from "../../styles/PriceLabel.styled";
+import { ImageContainer } from "../../../styles/ImageContainer.styled";
+import { PriceLabel } from "../../../styles/PriceLabel.styled";
 
 const ProductCard = () => {
   const theme = useTheme();

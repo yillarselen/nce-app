@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { ShoppingCartCount, StyledUserMenu } from "./UserMenu.styled";
-import { PiShoppingCart, PiHeart, PiMagnifyingGlass } from "react-icons/pi";
+import { StyledUserMenu } from "./UserMenu.styled";
+import { PiHeart, PiMagnifyingGlass } from "react-icons/pi";
 import { IconButton } from "@/app/components/styles/IconButton.styled";
 import { useTheme } from "styled-components";
 
@@ -17,11 +17,6 @@ export default function UserMenu() {
       </IconButton>
       <IconButton type={theme.buttons.nav}>
         <PiHeart />
-      </IconButton>
-      <IconButton type={theme.buttons.nav}>
-        <PiShoppingCart />
-        {/* Check count */}
-        <ShoppingCartCount>3</ShoppingCartCount>
       </IconButton>
     </StyledUserMenu>
   );

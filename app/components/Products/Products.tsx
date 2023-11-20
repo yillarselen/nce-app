@@ -3,7 +3,7 @@
 import React from "react";
 import { Container } from "../styles/Container.styled";
 import { IntroContainer } from "../styles/IntroContainer.styled";
-import ProductList from "./ProductList/ProductList";
+import ProductList from "./components/ProductList/ProductList";
 
 export default function Products() {
   return (

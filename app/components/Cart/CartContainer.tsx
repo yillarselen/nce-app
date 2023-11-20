@@ -3,8 +3,8 @@ import { Container } from "../styles/Container.styled";
 import { Flex } from "../styles/Flex.styled";
 import { IntroContainer } from "../styles/IntroContainer.styled";
 import { CartList, Seperator } from "./CartContainer.styled";
-import CartItem from "./CartItem/CartItem";
-import OrderSummary from "./OrderSummary/OrderSummary";
+import CartItem from "./components/CartItem/CartItem";
+import OrderSummary from "./components/OrderSummary/OrderSummary";
 
 export default function CartContainer() {
   return (

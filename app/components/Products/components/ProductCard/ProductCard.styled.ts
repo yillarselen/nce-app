@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IconButton } from "../../styles/IconButton.styled";
+import { IconButton } from "../../../styles/IconButton.styled";
 
 export const Card = styled.div`
   position: relative;

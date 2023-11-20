@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Flex, FlexBetween } from "../../styles/Flex.styled";
+import { Flex, FlexBetween } from "../../../styles/Flex.styled";
 import {
   ItemDetailsContainer,
   ItemProperties,
@@ -8,13 +8,13 @@ import {
   StyledCartItem,
   ItemName,
 } from "./CartItem.styled";
-import { ImageContainer } from "../../styles/ImageContainer.styled";
+import { ImageContainer } from "../../../styles/ImageContainer.styled";
 import Image from "next/image";
-import { PriceLabel } from "../../styles/PriceLabel.styled";
+import { PriceLabel } from "../../../styles/PriceLabel.styled";
 import ItemQuantity from "../ItemQuantity/ItemQuantity";
-import { Button } from "../../styles/Button.styled";
+import { Button } from "../../../styles/Button.styled";
 import { PiTrash, PiPaintBucket, PiTag } from "react-icons/pi";
-import { StyledBadge } from "../../styles/Badge.styled";
+import { StyledBadge } from "../../../styles/Badge.styled";
 
 interface CartItemProps {
   size?: string;

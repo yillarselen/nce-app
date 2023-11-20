@@ -1,11 +1,11 @@
-import React, { FC, MouseEvent } from "react";
+import React, { MouseEvent } from "react";
 import { HamburgerButton, HamburgerLine } from "./HamburgerMenu.styled";
 
 interface HamburgerMenuProps {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const HamburgerMenu: FC<HamburgerMenuProps> = ({ onClick }) => {
+export default function HamburgerMenu({ onClick }: HamburgerMenuProps) {
   return (
     <HamburgerButton onClick={onClick}>
       <HamburgerLine />
@@ -13,6 +13,4 @@ const HamburgerMenu: FC<HamburgerMenuProps> = ({ onClick }) => {
       <HamburgerLine />
     </HamburgerButton>
   );
-};
-
-export default HamburgerMenu;
+}
