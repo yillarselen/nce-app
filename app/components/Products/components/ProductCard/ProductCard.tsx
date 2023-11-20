@@ -13,8 +13,13 @@ import {
 } from "./ProductCard.styled";
 import { ImageContainer } from "../../../styles/ImageContainer.styled";
 import { PriceLabel } from "../../../styles/PriceLabel.styled";
+import { Product } from "@/app/types/ProductTypes";
 
-const ProductCard = () => {
+interface ProductCardProps {
+  product: Product;
+}
+
+export default function ProductCard({ product }: ProductCardProps) {
   const theme = useTheme();
 
   return (
@@ -26,7 +31,7 @@ const ProductCard = () => {
         <Link href="/product-detail">
           <ImageContainer>
             <Image
-              src="https://source.unsplash.com/random/300×300.png"
+              src={product.image}
               sizes="100vw"
               style={{
                 width: "100%",
@@ -39,14 +44,14 @@ const ProductCard = () => {
             />
           </ImageContainer>
           <ProductTitle>
-            <h3>Hoodie Sweatshirt</h3>
-            <h4>Mint green</h4>
+            <h3>{product.name}</h3>
+            <h4>{product.brand}</h4>
           </ProductTitle>
         </Link>
       </CardContainer>
 
       <CardFooter>
-        <PriceLabel>$3000.00</PriceLabel>
+        <PriceLabel>${product.price}</PriceLabel>
         <div>
           <Button type="primary" size="sm">
             <PiShoppingCart size={20} />
@@ -56,6 +61,4 @@ const ProductCard = () => {
       </CardFooter>
     </Card>
   );
-};
-
-export default ProductCard;
+}

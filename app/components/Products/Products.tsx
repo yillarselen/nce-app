@@ -1,11 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "../styles/Container.styled";
 import { IntroContainer } from "../styles/IntroContainer.styled";
 import ProductList from "./components/ProductList/ProductList";
+import { useProductsContext } from "@/app/context/products-context";
+import { Product } from "@/app/types/ProductTypes";
 
-export default function Products() {
+interface ProductsProps {
+  data: Product[];
+}
+
+export default function Products({ data }: ProductsProps) {
+  const { setProducts } = useProductsContext();
+
+  useEffect(() => {
+    setProducts(data);
+  }, []);
+
   return (
     <Container>
       <IntroContainer>
