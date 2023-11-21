@@ -35,7 +35,11 @@ export default function Products({ data }: ProductsProps) {
           aliquip ex ea commodo consequat.
         </p>
       </IntroContainer>
-      {isProductsLoading ? <LoadingSpinner /> : <ProductList />}
+      {isProductsLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <ProductList products={products} loading={isProductsLoading} />
+      )}
     </Container>
   );
 }

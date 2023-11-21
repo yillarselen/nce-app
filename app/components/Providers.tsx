@@ -8,6 +8,7 @@ import theme from "./styles/Theme";
 import ProductsContextProvider from "../context/products-context";
 import ShoppingCartContextProvider from "../context/shoppingcart-context";
 import ToastProvider from "../lib/ToastProvider";
+import FavoriteContextProvider from "../context/favorite-context";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -15,11 +16,13 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <ProductsContextProvider>
-          <ShoppingCartContextProvider>
-            <ToastProvider>
-              <Layout>{children}</Layout>
-            </ToastProvider>
-          </ShoppingCartContextProvider>
+          <FavoriteContextProvider>
+            <ShoppingCartContextProvider>
+              <ToastProvider>
+                <Layout>{children}</Layout>
+              </ToastProvider>
+            </ShoppingCartContextProvider>
+          </FavoriteContextProvider>
         </ProductsContextProvider>
       </ThemeProvider>
     </StyledComponentsRegistry>

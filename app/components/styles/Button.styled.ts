@@ -43,7 +43,7 @@ export const Button = styled.button<{
       ? props.theme.colors.button.primary
       : props.type === "secondary"
       ? props.theme.colors.button.secondary
-      : "none"};
+      : "transparent"};
   color: ${(props) =>
     props.type === "primary"
       ? "#fff"
@@ -58,7 +58,7 @@ export const Button = styled.button<{
         ? props.theme.colors.button.primaryHover
         : props.type === "secondary"
         ? props.theme.colors.button.secondary
-        : "none"};
+        : "transparent"};
   }
 `;
 

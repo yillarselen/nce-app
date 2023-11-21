@@ -1,4 +1,3 @@
-import LoadingSpinner from "./components/Layout/UI/Spinner/Spinner";
 import Products from "./components/Products/Products";
 import { getProducts } from "./lib/getProducts";
 

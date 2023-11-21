@@ -2,7 +2,8 @@ import Image from "next/image";
 
 import { useTheme } from "styled-components";
 import Link from "next/link";
-import { PiHeartLight, PiShoppingCart } from "react-icons/pi";
+import { PiHeartFill, PiHeartLight, PiShoppingCart } from "react-icons/pi";
+import { FaHeart } from "react-icons/fa";
 import { Button } from "../../../styles/Button.styled";
 import {
   Card,
@@ -15,8 +16,9 @@ import { ImageContainer } from "../../../styles/ImageContainer.styled";
 import { PriceLabel } from "../../../styles/PriceLabel.styled";
 import { Product } from "@/app/types/ProductTypes";
 import { useShoppingCartContext } from "@/app/context/shoppingcart-context";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useState } from "react";
+import { useFavoriteContext } from "@/app/context/favorite-context";
 
 interface ProductCardProps {
   product: Product;
@@ -25,7 +27,9 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const theme = useTheme();
   const { addToCart } = useShoppingCartContext();
+  const { toggleFavorite, favoriteItems } = useFavoriteContext();
   const [addButtonText, setAddButtonText] = useState("Add to bag");
+  const favItem = favoriteItems.some((e) => e.id === product.id);
 
   function handleAdd(product: Product) {
     addToCart(product);
@@ -39,8 +43,11 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Card>
       <CardContainer>
-        <FavButton type={theme.buttons.fav}>
-          <PiHeartLight />
+        <FavButton
+          onClick={() => toggleFavorite(product)}
+          type={theme.buttons.fav}
+        >
+          {favItem ? <PiHeartFill fill="red" /> : <PiHeartLight />}
         </FavButton>
         <Link href="/product-detail">
           <ImageContainer>
