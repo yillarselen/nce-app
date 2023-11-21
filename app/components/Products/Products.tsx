@@ -1,22 +1,28 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "../styles/Container.styled";
 import { IntroContainer } from "../styles/IntroContainer.styled";
 import ProductList from "./components/ProductList/ProductList";
 import { useProductsContext } from "@/app/context/products-context";
 import { Product } from "@/app/types/ProductTypes";
+import LoadingSpinner from "../Layout/UI/Spinner/Spinner";
 
 interface ProductsProps {
   data: Product[];
 }
 
 export default function Products({ data }: ProductsProps) {
+  const [isLoading, setIsLoading] = useState(true); // Initially true to get data from json file with fs.
   const { setProducts } = useProductsContext();
 
   useEffect(() => {
     setProducts(data);
   }, []);
+
+  useEffect(() => {
+    if (data.length > 0) setIsLoading(false);
+  }, [data]);
 
   return (
     <Container>
@@ -29,7 +35,7 @@ export default function Products({ data }: ProductsProps) {
           aliquip ex ea commodo consequat.
         </p>
       </IntroContainer>
-      <ProductList />
+      {isLoading ? <LoadingSpinner /> : <ProductList />}
     </Container>
   );
 }

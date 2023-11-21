@@ -1,4 +1,5 @@
 "use client";
+
 import { useShoppingCartContext } from "@/app/context/shoppingcart-context";
 import { Container } from "../styles/Container.styled";
 import { Flex } from "../styles/Flex.styled";
