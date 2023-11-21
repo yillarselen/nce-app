@@ -26,7 +26,7 @@ export const CartContainer = styled.div`
 `;
 
 export const ScrollableContent = styled.div`
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 400px;
   padding-right: 1rem;
   margin-right: -1rem;

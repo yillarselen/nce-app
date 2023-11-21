@@ -8,6 +8,12 @@ const theme = {
     slate300: "#cbd5e1",
     slate500: "#64748b",
 
+    button: {
+      primary: "#171717",
+      primaryHover: "#1e293b",
+      secondary: "#fff",
+    },
+
     nav: {
       link: "#334155",
       hover: "#f1f5f9",

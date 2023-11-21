@@ -19,10 +19,14 @@ const properties = {
   },
 };
 
-export const Button = styled.button<{ type?: ButtonType; size?: size }>`
+export const Button = styled.button<{
+  type?: ButtonType;
+  size?: size;
+}>`
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1rem;
   font-size: ${({ size }) =>
     size ? properties[size].fontSize : properties.md.fontSize};
   padding: ${({ size, type }) =>
@@ -34,11 +38,11 @@ export const Button = styled.button<{ type?: ButtonType; size?: size }>`
   border-radius: 2rem;
   box-shadow: ${({ type }) =>
     type !== "danger" && "0 0.125rem 0.25rem rgba(0, 0, 0, 0.1)"};
-  background: ${(props) =>
+  background-color: ${(props) =>
     props.type === "primary"
-      ? props.theme.colors.black
+      ? props.theme.colors.button.primary
       : props.type === "secondary"
-      ? "#fff"
+      ? props.theme.colors.button.secondary
       : "none"};
   color: ${(props) =>
     props.type === "primary"
@@ -46,6 +50,21 @@ export const Button = styled.button<{ type?: ButtonType; size?: size }>`
       : props.type === "secondary"
       ? props.theme.colors.black
       : "red"};
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) =>
+      props.type === "primary"
+        ? props.theme.colors.button.primaryHover
+        : props.type === "secondary"
+        ? props.theme.colors.button.secondary
+        : "none"};
+  }
+`;
+
+export const LoadMoreButton = styled(Button)`
+  margin: 2rem 0;
+  padding: 1rem 3rem;
 `;
 
 export const ButtonGroup = styled.div`

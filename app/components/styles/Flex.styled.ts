@@ -12,3 +12,9 @@ export const FlexBetween = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const FlexCenter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
