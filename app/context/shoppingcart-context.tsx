@@ -16,6 +16,7 @@ interface ShoppingCartContext {
   changeItemQuantity: (item: Product, quantity: number) => void;
   total: number;
   itemQuantity: number;
+  isCartLoading: boolean;
 }
 
 export const ShoppingCartContext = createContext<ShoppingCartContext | null>(
@@ -41,6 +42,7 @@ export default function ShoppingCartContextProvider({
   const [cartItems, setCartItems] = useState<CartItem[] | []>([]);
   const [total, setTotal] = useState<number>(0);
   const [itemQuantity, setItemQuantity] = useState<number>(0);
+  const [isCartLoading, setIsCartLoading] = useState<boolean>(true);
 
   function addToCart(currentItem: Product) {
     const items = [...cartItems];
@@ -105,6 +107,7 @@ export default function ShoppingCartContextProvider({
     setCartItems(items);
     setTotal(totalPrice);
     setItemQuantity(quantity);
+    setIsCartLoading(false);
   }
 
   useEffect(() => {
@@ -125,6 +128,7 @@ export default function ShoppingCartContextProvider({
         changeItemQuantity,
         total,
         itemQuantity,
+        isCartLoading,
       }}
     >
       {children}

@@ -13,16 +13,16 @@ interface ProductsProps {
 }
 
 export default function Products({ data }: ProductsProps) {
-  const [isLoading, setIsLoading] = useState(true); // Initially true to get data from json file with fs.
-  const { setProducts } = useProductsContext();
+  const { products, setProducts, isProductsLoading, setIsProductsLoading } =
+    useProductsContext();
 
   useEffect(() => {
     setProducts(data);
-  }, []);
+  }, [data]);
 
   useEffect(() => {
-    if (data.length > 0) setIsLoading(false);
-  }, [data]);
+    if (products && products.length > 0) setIsProductsLoading(false);
+  }, [products]);
 
   return (
     <Container>
@@ -35,7 +35,7 @@ export default function Products({ data }: ProductsProps) {
           aliquip ex ea commodo consequat.
         </p>
       </IntroContainer>
-      {isLoading ? <LoadingSpinner /> : <ProductList />}
+      {isProductsLoading ? <LoadingSpinner /> : <ProductList />}
     </Container>
   );
 }
