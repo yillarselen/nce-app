@@ -25,6 +25,27 @@ export const CartContainer = styled.div`
   }
 `;
 
+export const ScrollableContent = styled.div`
+  overflow-y: scroll;
+  max-height: 400px;
+  padding-right: 1rem;
+  margin-right: -1rem;
+
+  &::-webkit-scrollbar {
+    width: 0.4em;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px ${({ theme }) => theme.colors.slate300};
+    border-radius: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.slate500};
+    border-radius: 1rem;
+  }
+`;
+
 export const ShoppingCartCount = styled.div`
   display: flex;
   font-size: 0.7rem;

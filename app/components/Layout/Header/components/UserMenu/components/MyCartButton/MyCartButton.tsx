@@ -7,6 +7,7 @@ import {
   ShoppingCartCount,
   CartButton,
   CartButtonLink,
+  ScrollableContent,
 } from "./MyCartButton.styled";
 import { useTheme } from "styled-components";
 import Link from "next/link";
@@ -18,11 +19,13 @@ export default function CartContent() {
   const [isOpen, setIsOpen] = useState(false);
   const cartRef = useRef<HTMLDivElement>(null);
   const theme = useTheme();
-  const { cartItems, total, itemQuantity } = useShoppingCartContext();
+  const { cartItems, total, itemQuantity, showCart, setShowCart } =
+    useShoppingCartContext();
 
   const toggleCart = (event: MouseEvent) => {
     if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
       setIsOpen(false);
+      setShowCart(false);
     }
   };
 
@@ -37,6 +40,12 @@ export default function CartContent() {
       document.removeEventListener("mousedown", toggleCart);
     };
   }, [isOpen, toggleCart]);
+
+  // Optional: Cart can be shown when a new product is added.
+
+  // useEffect(() => {
+  //   setIsOpen(showCart);
+  // }, [showCart]);
 
   return (
     <div ref={cartRef}>
@@ -62,7 +71,7 @@ export default function CartContent() {
       {isOpen && (
         <CartContainer>
           <h2>Shopping Cart</h2>
-          <div>
+          <ScrollableContent>
             {cartItems.length ? (
               cartItems.map((item) => (
                 <CartItem cartItem={item} size="sm" key={item.product.id} />
@@ -70,7 +79,7 @@ export default function CartContent() {
             ) : (
               <h3>Your cart is empty :(</h3>
             )}
-          </div>
+          </ScrollableContent>
           {cartItems.length > 0 && (
             <CartFooter>
               <FlexBetween>

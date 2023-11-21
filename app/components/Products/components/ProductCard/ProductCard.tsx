@@ -15,6 +15,8 @@ import { ImageContainer } from "../../../styles/ImageContainer.styled";
 import { PriceLabel } from "../../../styles/PriceLabel.styled";
 import { Product } from "@/app/types/ProductTypes";
 import { useShoppingCartContext } from "@/app/context/shoppingcart-context";
+import { ToastContainer, toast } from "react-toastify";
+import { useState } from "react";
 
 interface ProductCardProps {
   product: Product;
@@ -23,6 +25,16 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const theme = useTheme();
   const { addToCart } = useShoppingCartContext();
+  const [addButtonText, setAddButtonText] = useState("Add to bag");
+
+  function handleAdd(product: Product) {
+    addToCart(product);
+    toast(`${product.name} has been added to your cart!`);
+    setAddButtonText("Added!");
+    setTimeout(() => {
+      setAddButtonText("Add to bag");
+    }, 4000);
+  }
 
   return (
     <Card>
@@ -55,9 +67,9 @@ export default function ProductCard({ product }: ProductCardProps) {
       <CardFooter>
         <PriceLabel>${product.price}</PriceLabel>
         <div>
-          <Button onClick={() => addToCart(product)} type="primary" size="sm">
+          <Button onClick={() => handleAdd(product)} type="primary" size="sm">
             <PiShoppingCart size={20} />
-            <span>Add to bag</span>
+            <span>{addButtonText}</span>
           </Button>
         </div>
       </CardFooter>

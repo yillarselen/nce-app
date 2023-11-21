@@ -17,6 +17,8 @@ interface ShoppingCartContext {
   total: number;
   itemQuantity: number;
   isCartLoading: boolean;
+  showCart: boolean;
+  setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const ShoppingCartContext = createContext<ShoppingCartContext | null>(
@@ -43,6 +45,7 @@ export default function ShoppingCartContextProvider({
   const [total, setTotal] = useState<number>(0);
   const [itemQuantity, setItemQuantity] = useState<number>(0);
   const [isCartLoading, setIsCartLoading] = useState<boolean>(true);
+  const [showCart, setShowCart] = useState<boolean>(false);
 
   function addToCart(currentItem: Product) {
     const items = [...cartItems];
@@ -59,6 +62,8 @@ export default function ShoppingCartContextProvider({
     }
 
     updateState(items);
+
+    setShowCart(true);
     localStorage.setItem("cartItems", JSON.stringify(items));
   }
 
@@ -129,6 +134,8 @@ export default function ShoppingCartContextProvider({
         total,
         itemQuantity,
         isCartLoading,
+        showCart,
+        setShowCart,
       }}
     >
       {children}
