@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const IntroContainer = styled.div`
-  padding: 1.5rem 0;
+  padding: 1rem 0;
+  margin-top: 5rem;
   margin-bottom: 3rem;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray};
 
   @media (min-width: ${({ theme }) => theme.screens.md}) {
-    padding: 3rem 0;
+    padding: 2rem 0;
   }
 
   h2 {
