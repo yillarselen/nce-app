@@ -15,7 +15,6 @@ import ItemQuantity from "../ItemQuantity/ItemQuantity";
 import { Button } from "../../../styles/Button.styled";
 import { PiTrash, PiPaintBucket, PiTag } from "react-icons/pi";
 import { StyledBadge } from "../../../styles/Badge.styled";
-import { Product } from "@/app/types/ProductTypes";
 import { useShoppingCartContext } from "@/app/context/shoppingcart-context";
 import { CartItem as Item } from "@/app/types/CartTypes";
 
@@ -25,7 +24,7 @@ interface CartItemProps {
 }
 
 export default function CartItem({ cartItem, size }: CartItemProps) {
-  const { handleRemoveFromCart } = useShoppingCartContext();
+  const { removeItemFromCart } = useShoppingCartContext();
 
   return (
     <StyledCartItem size={size}>
@@ -67,7 +66,7 @@ export default function CartItem({ cartItem, size }: CartItemProps) {
             </ItemProperties>
           </ItemName>
           <ProductSelectionContainer>
-            {size !== "sm" && <ItemQuantity itemQuantity={cartItem.quantity} />}
+            {size !== "sm" && <ItemQuantity item={cartItem} />}
             <PriceLabel>${cartItem.product.price}</PriceLabel>
           </ProductSelectionContainer>
         </FlexBetween>
@@ -76,7 +75,7 @@ export default function CartItem({ cartItem, size }: CartItemProps) {
             {size === "sm" ? `Qty: ${cartItem.quantity}` : "In Stock"}
           </StyledBadge>
           <Button
-            onClick={() => handleRemoveFromCart(cartItem.product)}
+            onClick={() => removeItemFromCart(cartItem.product)}
             type="danger"
             size="md"
           >

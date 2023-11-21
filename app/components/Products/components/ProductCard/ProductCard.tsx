@@ -22,7 +22,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const theme = useTheme();
-  const { handleAddToCart } = useShoppingCartContext();
+  const { addToCart } = useShoppingCartContext();
 
   return (
     <Card>
@@ -55,11 +55,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <CardFooter>
         <PriceLabel>${product.price}</PriceLabel>
         <div>
-          <Button
-            onClick={() => handleAddToCart(product)}
-            type="primary"
-            size="sm"
-          >
+          <Button onClick={() => addToCart(product)} type="primary" size="sm">
             <PiShoppingCart size={20} />
             <span>Add to bag</span>
           </Button>

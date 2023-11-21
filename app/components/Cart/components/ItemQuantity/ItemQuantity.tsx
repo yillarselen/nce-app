@@ -4,37 +4,63 @@ import { NumberInput, QuantitySelect } from "./ItemQuantity.styled";
 import { IconButton } from "../../../styles/IconButton.styled";
 import { PiMinus, PiPlus } from "react-icons/pi";
 import { useState } from "react";
+import { useShoppingCartContext } from "@/app/context/shoppingcart-context";
+import { CartItem } from "@/app/types/CartTypes";
 
 interface ItemQuantityProps {
-  itemQuantity: number;
+  item: CartItem;
 }
 
-export default function ItemQuantity({ itemQuantity }: ItemQuantityProps) {
-  const [quantity, setQuantity] = useState(itemQuantity);
+const options = 10;
+
+function getOptions() {
+  return [...Array(options)].map((_, i) => {
+    const num = i + 1;
+    return (
+      <option value={num} key={num}>
+        {num}
+      </option>
+    );
+  });
+}
+
+export default function ItemQuantity({ item }: ItemQuantityProps) {
+  const { addToCart, removeQuantityFromCart, changeItemQuantity } =
+    useShoppingCartContext();
 
   function increment() {
-    setQuantity(quantity + 1);
+    addToCart(item.product);
   }
 
   function decrement() {
-    if (quantity > 0) setQuantity(quantity - 1);
+    removeQuantityFromCart(item.product);
+  }
+
+  function changeQuantity(val: string) {
+    changeItemQuantity(item.product, Number(val));
   }
 
   return (
     <>
       <NumberInput>
-        <IconButton disabled={!quantity} onClick={decrement} size="md" $border>
+        <IconButton
+          disabled={!item.quantity}
+          onClick={decrement}
+          size="md"
+          $border
+        >
           <PiMinus />
         </IconButton>
-        <span>{quantity}</span>
+        <span>{item.quantity}</span>
         <IconButton onClick={increment} size="md" $border>
           <PiPlus />
         </IconButton>
       </NumberInput>
-      <QuantitySelect>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
+      <QuantitySelect
+        defaultValue={item.quantity}
+        onChange={(event) => changeQuantity(event.target.value)}
+      >
+        {getOptions()}
       </QuantitySelect>
     </>
   );

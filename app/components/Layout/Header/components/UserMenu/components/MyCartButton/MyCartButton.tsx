@@ -71,35 +71,37 @@ export default function CartContent() {
               <h3>Your cart is empty :(</h3>
             )}
           </div>
-          <CartFooter>
-            <FlexBetween>
-              <span>Total</span>
-              <span>${total}</span>
-            </FlexBetween>
-            <ButtonGroup>
-              <Link href="/cart" passHref legacyBehavior>
-                <Button
-                  onClick={() => setIsOpen(false)}
-                  as="a"
-                  type="secondary"
-                  size="lg"
-                >
-                  View Cart
-                </Button>
-              </Link>
+          {cartItems.length > 0 && (
+            <CartFooter>
+              <FlexBetween>
+                <span>Total</span>
+                <span>${total}</span>
+              </FlexBetween>
+              <ButtonGroup>
+                <Link href="/cart" passHref legacyBehavior>
+                  <Button
+                    onClick={() => setIsOpen(false)}
+                    as="a"
+                    type="secondary"
+                    size="lg"
+                  >
+                    View Cart
+                  </Button>
+                </Link>
 
-              <Link href="/" passHref legacyBehavior>
-                <Button
-                  onClick={() => setIsOpen(false)}
-                  as="a"
-                  type="primary"
-                  size="lg"
-                >
-                  Checkout
-                </Button>
-              </Link>
-            </ButtonGroup>
-          </CartFooter>
+                <Link href="/" passHref legacyBehavior>
+                  <Button
+                    onClick={() => setIsOpen(false)}
+                    as="a"
+                    type="primary"
+                    size="lg"
+                  >
+                    Checkout
+                  </Button>
+                </Link>
+              </ButtonGroup>
+            </CartFooter>
+          )}
         </CartContainer>
       )}
     </div>

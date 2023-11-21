@@ -11,6 +11,8 @@ import OrderSummary from "./components/OrderSummary/OrderSummary";
 export default function CartContainer() {
   const { cartItems } = useShoppingCartContext();
 
+  console.log(cartItems);
+
   return (
     <Container>
       <IntroContainer>
@@ -20,15 +22,20 @@ export default function CartContainer() {
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </IntroContainer>
-      <Flex $smBlock>
-        <CartList>
-          {cartItems.map((item) => (
-            <CartItem cartItem={item} key={item.product.id} />
-          ))}
-        </CartList>
-        <Seperator />
-        <OrderSummary />
-      </Flex>
+
+      {cartItems.length > 0 ? (
+        <Flex $smBlock>
+          <CartList>
+            {cartItems.map((item) => (
+              <CartItem cartItem={item} key={item.product.id} />
+            ))}
+          </CartList>
+          <Seperator />
+          <OrderSummary />
+        </Flex>
+      ) : (
+        <h3 style={{ textAlign: "center" }}>Your cart is empty :(</h3>
+      )}
     </Container>
   );
 }
