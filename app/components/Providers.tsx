@@ -9,13 +9,19 @@ import ProductsContextProvider from "../context/products-context";
 import ShoppingCartContextProvider from "../context/shoppingcart-context";
 import ToastProvider from "../lib/ToastProvider";
 import FavoriteContextProvider from "../context/favorite-context";
+import { Product } from "../types/ProductTypes";
 
-const Providers = ({ children }: { children: React.ReactNode }) => {
+interface ProvidersProps {
+  productsData: Product[];
+  children: React.ReactNode;
+}
+
+const Providers = ({ productsData, children }: ProvidersProps) => {
   return (
     <StyledComponentsRegistry>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <ProductsContextProvider>
+        <ProductsContextProvider productsData={productsData}>
           <FavoriteContextProvider>
             <ShoppingCartContextProvider>
               <ToastProvider>

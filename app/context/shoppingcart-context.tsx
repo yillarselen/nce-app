@@ -62,9 +62,8 @@ export default function ShoppingCartContextProvider({
     }
 
     updateState(items);
-
-    setShowCart(true);
     localStorage.setItem("cartItems", JSON.stringify(items));
+    // setShowCart(true); // Optionally show cart menu
   }
 
   function removeQuantityFromCart(currentItem: Product) {

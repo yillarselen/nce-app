@@ -1,28 +1,20 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Container } from "../styles/Container.styled";
 import { IntroContainer } from "../styles/IntroContainer.styled";
 import ProductList from "./components/ProductList/ProductList";
 import { useProductsContext } from "@/app/context/products-context";
-import { Product } from "@/app/types/ProductTypes";
 import LoadingSpinner from "../Layout/UI/Spinner/Spinner";
 
-interface ProductsProps {
-  data: Product[];
-}
-
-export default function Products({ data }: ProductsProps) {
-  const { products, setProducts, isProductsLoading, setIsProductsLoading } =
+export default function Products() {
+  const { products, isProductsLoading, setIsProductsLoading } =
     useProductsContext();
 
   useEffect(() => {
-    setProducts(data);
-  }, [data]);
-
-  useEffect(() => {
+    console.log(products);
     if (products && products.length > 0) setIsProductsLoading(false);
-  }, [products]);
+  }, [products, setIsProductsLoading]);
 
   return (
     <Container>

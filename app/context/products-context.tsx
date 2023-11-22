@@ -1,34 +1,58 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { Product } from "../types/ProductTypes";
+import debounce from "../utils/debounce";
 
 interface ProductsContextProviderProps {
+  productsData: Product[];
   children: React.ReactNode;
 }
 
 interface ProductsContext {
-  products: Product[];
-  setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
   isProductsLoading: boolean;
   setIsProductsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  products: Product[];
 }
 
 export const ProductsContext = createContext<ProductsContext | null>(null);
 
 export default function ProductsContextProvider({
+  productsData,
   children,
 }: ProductsContextProviderProps) {
-  const [products, setProducts] = useState<Product[] | []>([]);
   const [isProductsLoading, setIsProductsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [products, setProducts] = useState<Product[]>(productsData);
+
+  const updateFilteredProducts = () => {
+    const filtered = products.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setProducts(filtered);
+  };
+
+  const debouncedUpdateFilteredProducts = debounce(updateFilteredProducts, 500);
+
+  useEffect(() => {
+    if (searchTerm.length > 2) {
+      debouncedUpdateFilteredProducts();
+    } else {
+      setProducts(productsData);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm]);
 
   return (
     <ProductsContext.Provider
       value={{
-        products,
-        setProducts,
         isProductsLoading,
         setIsProductsLoading,
+        searchTerm,
+        setSearchTerm,
+        products,
       }}
     >
       {children}

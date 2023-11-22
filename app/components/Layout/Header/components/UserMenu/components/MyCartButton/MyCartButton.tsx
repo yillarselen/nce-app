@@ -22,12 +22,15 @@ export default function CartContent() {
   const { cartItems, total, itemQuantity, showCart, setShowCart } =
     useShoppingCartContext();
 
-  const toggleCart = (event: MouseEvent) => {
-    if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
-      setIsOpen(false);
-      setShowCart(false);
-    }
-  };
+  const toggleCart = useCallback(
+    (event: MouseEvent) => {
+      if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+        // setShowCart(false);
+      }
+    },
+    [cartRef]
+  );
 
   useEffect(() => {
     if (isOpen) {
