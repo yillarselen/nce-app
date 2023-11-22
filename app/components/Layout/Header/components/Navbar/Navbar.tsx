@@ -2,10 +2,11 @@
 
 import React, { useState } from "react";
 import { Navigation, Nav, NavItem, NavLink, Logo } from "./Navbar.styled";
+import Image from "next/image";
 import UserMenu from "../UserMenu/UserMenu";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-import SideMenu from "../SideMenu/SideMenu";
 import Link from "next/link";
+import SideMenu from "../SideMenu/SideMenu";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,7 +22,14 @@ export default function Navbar() {
   return (
     <Navigation>
       <HamburgerMenu onClick={toggleMenu} />
-      <Logo>Logo</Logo>
+      <Logo href="/">
+        <Image
+          src="/images/logo.svg"
+          height={120}
+          width={120}
+          alt="wave sport"
+        />
+      </Logo>
       <SideMenu open={menuOpen} onClose={closeMenu} />
       <Nav>
         <NavItem>

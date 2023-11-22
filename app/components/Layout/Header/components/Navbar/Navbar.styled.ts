@@ -6,10 +6,11 @@ export const Navigation = styled.div`
   justify-content: space-between;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.a`
   display: flex;
   align-items: center;
   flex: 1 1;
+  margin-top: 1rem;
 `;
 
 export const Nav = styled.ul`
