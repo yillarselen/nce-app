@@ -1,4 +1,4 @@
-# E-commerce App - Assignment
+# E-commerce App
 
 E-commerce web app developed with Next.js, Context API, styled-components, Jest and React Testing Library.
 
