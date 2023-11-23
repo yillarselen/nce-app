@@ -2,6 +2,7 @@
 const nextConfig = {
   compiler: {
     styledComponents: true,
+    appDir: true,
   },
   images: {
     domains: ["source.unsplash.com"],

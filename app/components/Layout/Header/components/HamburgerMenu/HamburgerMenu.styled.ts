@@ -7,7 +7,7 @@ export const HamburgerButton = styled.button`
   display: flex;
   flex-direction: column;
   padding: 5px;
-  flex: 1.5 1;
+  flex: 1 1;
   justify-content: center;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {

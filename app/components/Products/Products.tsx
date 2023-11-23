@@ -6,9 +6,10 @@ import { IntroContainer } from "../styles/IntroContainer.styled";
 import ProductList from "./components/ProductList/ProductList";
 import { useProductsContext } from "@/app/context/products-context";
 import LoadingSpinner from "../Layout/UI/Spinner/Spinner";
+import { FlexCenter } from "../styles/Flex.styled";
 
 export default function Products() {
-  const { products, isProductsLoading, handleSetIsProductLoading } =
+  const { products, isProductsLoading, handleSetIsProductLoading, searchTerm } =
     useProductsContext();
 
   useEffect(() => {
@@ -28,8 +29,12 @@ export default function Products() {
       </IntroContainer>
       {isProductsLoading ? (
         <LoadingSpinner />
-      ) : (
+      ) : products.length > 0 ? (
         <ProductList products={products} loading={isProductsLoading} />
+      ) : (
+        <FlexCenter>
+          <h3>Your search for "{searchTerm}" did not return any results.</h3>
+        </FlexCenter>
       )}
     </Container>
   );

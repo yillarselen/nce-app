@@ -7,7 +7,7 @@ interface FavoriteContextProviderProps {
   children: React.ReactNode;
 }
 
-interface FavoriteContext {
+export interface FavoriteContext {
   favoriteItems: Product[];
   toggleFavorite: (item: Product) => void;
   isFavoritesLoading: boolean;

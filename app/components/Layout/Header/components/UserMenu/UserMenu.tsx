@@ -7,7 +7,6 @@ import { IconButton } from "@/app/components/styles/IconButton.styled";
 import { useTheme } from "styled-components";
 import MyCartButton from "./components/MyCartButton/MyCartButton";
 import Link from "next/link";
-import { useProductsContext } from "@/app/context/products-context";
 import SearchInput from "../../../UI/SearchInput/SearchInput";
 
 // TODO: Change icons
@@ -15,15 +14,19 @@ export default function UserMenu() {
   const theme = useTheme();
   const [toggleSearch, setToggleSearch] = useState(false);
 
+  function handleClose() {
+    setToggleSearch(!toggleSearch);
+  }
+
   return (
     <StyledUserMenu>
-      <SearchInput show={toggleSearch} />
-      {/* <IconButton
-        onClick={() => setToggleSearch(!toggleSearch)}
+      <SearchInput show={toggleSearch} handleClose={handleClose} />
+      <IconButton
+        onClick={() => setToggleSearch((toggleSearch) => !toggleSearch)}
         type={theme.buttons.nav}
       >
         <PiMagnifyingGlass />
-      </IconButton> */}
+      </IconButton>
       <Link href="/favorites" legacyBehavior passHref>
         <IconButton as="a" type={theme.buttons.nav}>
           <PiHeart />

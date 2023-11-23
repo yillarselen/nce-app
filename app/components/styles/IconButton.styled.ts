@@ -39,4 +39,19 @@ export const IconButton = styled.button<{
     opacity: 0.5;
     cursor: default;
   }
+
+  @media (max-width: ${({ theme }) => theme.screens.md}) {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &.close-search {
+    display: none;
+
+    @media (min-width: ${({ theme }) => theme.screens.md}) {
+      display: flex;
+      position: absolute;
+      right: 15%;
+    }
+  }
 `;

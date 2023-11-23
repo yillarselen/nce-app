@@ -54,11 +54,17 @@ export const ShoppingCartCount = styled.div`
   color: #fff;
   width: 0.9rem;
   height: 0.9rem;
+  line-height: 0.87rem;
   position: absolute;
-  right: 6px;
-  top: 8px;
+  right: 1px;
+  top: 1px;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: ${({ theme }) => theme.screens.md}) {
+    right: 6px;
+    top: 8px;
+  }
 `;
 
 export const CartButton = styled.div`

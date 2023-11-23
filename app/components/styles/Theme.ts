@@ -7,6 +7,7 @@ const theme = {
     green: "#27c560",
     slate300: "#cbd5e1",
     slate500: "#64748b",
+    orange: "#ec5e28",
 
     button: {
       primary: "#171717",

@@ -89,7 +89,7 @@ export default function ShoppingCartContextProvider({
     );
 
     updateState(filteredItems);
-    localStorage.setItem("cartItems", JSON.stringify(items));
+    localStorage.setItem("cartItems", JSON.stringify(filteredItems));
   }
 
   function changeItemQuantity(currentItem: Product, quantity: number) {
