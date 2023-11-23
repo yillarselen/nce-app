@@ -5,6 +5,8 @@ import {
   customRender,
   mockProductWithQuantity,
   cartProps,
+  productsProps,
+  favoriteProps,
 } from "@/__utils__/test-utils";
 const { describe, expect, it } = require("@jest/globals");
 
@@ -12,6 +14,8 @@ describe("Products component", () => {
   it("shows CartItem component is on the screen", () => {
     customRender(<CartItem cartItem={mockProductWithQuantity} />, {
       cartProps,
+      productsProps,
+      favoriteProps,
     });
     const cartItem = screen.getByRole("cart-item");
     expect(cartItem).toBeInTheDocument();
@@ -20,6 +24,8 @@ describe("Products component", () => {
   it("renders cart item specifications", () => {
     customRender(<CartItem cartItem={mockProductWithQuantity} />, {
       cartProps,
+      productsProps,
+      favoriteProps,
     });
     const productName = screen.getByRole("heading", { level: 3 });
     const productImage = screen.getByAltText(
@@ -40,6 +46,8 @@ describe("Products component", () => {
   it("renders remove button", () => {
     customRender(<CartItem cartItem={mockProductWithQuantity} />, {
       cartProps,
+      productsProps,
+      favoriteProps,
     });
     const removeProductButton = screen.getByRole("button", {
       name: /remove-product-button/i,
@@ -52,6 +60,8 @@ describe("Products component", () => {
     const click = cartProps.value.removeItemFromCart;
     customRender(<CartItem cartItem={mockProductWithQuantity} />, {
       cartProps,
+      productsProps,
+      favoriteProps,
     });
     const removeProductButton = screen.getByRole("button", {
       name: /remove-product-button/i,

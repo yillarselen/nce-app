@@ -77,12 +77,13 @@ export const mockProductWithQuantity = {
 export const favoriteProps = {
   value: {
     favoriteItems: mockProducts,
+    toggleFavorite: jest.fn(),
+    isFavoritesLoading: true,
   },
 };
 export const cartProps = {
   value: {
     cartItems: [mockProductWithQuantity],
-    addToCart: jest.fn(),
     removeItemFromCart: jest.fn(),
   },
 };
