@@ -7,7 +7,7 @@ import {
   cartProps,
   productsProps,
   favoriteProps,
-} from "@/__utils__/test-utils";
+} from "@/app/__utils__/test-utils";
 const { describe, expect, it } = require("@jest/globals");
 
 describe("Products component", () => {

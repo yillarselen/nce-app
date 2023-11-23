@@ -8,7 +8,7 @@ import {
   customRender,
   mockProduct,
   handleLoading,
-} from "@/__utils__/test-utils";
+} from "@/app/__utils__/test-utils";
 const { describe, expect, test } = require("@jest/globals");
 
 describe("Products component", () => {
