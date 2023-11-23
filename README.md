@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-commerce App - Assignment
 
-## Getting Started
+E-commerce web app developed with Next.js, Context API, styled-components, Jest and React Testing Library.
 
-First, run the development server:
+## Other dependencies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [`react-icons`](https://react-icons.github.io/react-icons/)
+- [`react-toastify`](https://fkhadra.github.io/react-toastify/introduction)
+
+# Demo
+
+[https://main--funny-dusk-255901.netlify.app/](https://main--funny-dusk-255901.netlify.app/)
+
+# Features
+
+- **Product List on Home Page**: Display a list of products on the home page.
+- **Instant Product Search**: Conduct an instant search across all products. On the cart page, pressing enter redirects to the home page with filtered products.
+- **Cart Management**: Add/remove products to/from the cart with data stored in localStorage. View your added products on /cart page.
+- **Favorites List**: Add/remove products to/from the favorites list with data stored in localStorage. Access your favorite products on the /favorites page by clicking the heart icon in the header.
+- **View Cart Details**: Click on the "View Cart" button in the cart menu to view detailed cart information. On mobile, details are displayed on cart button click.
+
+## Folder Structure
+
+- **/app**: Next.js pages
+- **/components**: React components with styles and `__tests__` folders
+- **/styles**: global styled-components styles
+- **/context**: Context API related files
+- **/utils**: helper methods
+- **/data**: Provided json file
+
+## Project setup
+
+```
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Compiles and hot-reloads for development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+pnpm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Compiles and minifies for production
 
-## Learn More
+```
+pnpm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Run your unit tests
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+pnpm test
+```
