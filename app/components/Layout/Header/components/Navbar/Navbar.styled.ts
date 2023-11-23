@@ -11,7 +11,7 @@ export const Logo = styled.a`
   align-items: center;
   flex: 1 1;
   margin-top: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 
 export const Nav = styled.ul`

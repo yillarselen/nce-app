@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { Product } from "../types/ProductTypes";
-import debounce from "../utils/debounce";
+import debounce from "../helpers/debounce";
 
 interface ProductsContextProviderProps {
   productsData: Product[];

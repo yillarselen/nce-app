@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata } from "next/types";
 import { Poppins } from "next/font/google";
 import Providers from "./components/Providers";
 import Header from "./components/Layout/Header/Header";
 import Footer from "./components/Layout/Footer/Footer";
-import { getProducts } from "./utils/getProducts";
+import { getProducts } from "./helpers/getProducts";
 
 export const metadata: Metadata = {
-  title: "nc-commerce",
+  title: "Wave Sport",
   description: "E-commerce assignment",
 };
 
