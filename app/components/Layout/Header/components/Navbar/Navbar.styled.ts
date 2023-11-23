@@ -11,7 +11,11 @@ export const Logo = styled.a`
   align-items: center;
   flex: 1 1;
   margin-top: 1rem;
-  justify-content: flex-start;
+  justify-content: center;
+
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    justify-content: flex-start;
+  }
 `;
 
 export const Nav = styled.ul`

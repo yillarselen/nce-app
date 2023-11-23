@@ -1,6 +1,24 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-export const CartContainer = styled.div`
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
+
+export const CartContainer = styled.div<{ $show: boolean }>`
   position: fixed;
   top: 4.4rem;
   right: 2rem;
@@ -10,6 +28,9 @@ export const CartContainer = styled.div`
   padding: 1.5rem 2rem;
   z-index: 2;
   border-radius: 1rem;
+  animation: ${({ $show }) => ($show ? fadeIn : fadeOut)} 0.1s ease-in-out;
+  visibility: ${({ $show }) => ($show ? "visible" : "hidden")};
+  transition: visibility 0.1s ease-in-out;
 
   h2 {
     margin-bottom: 2rem;

@@ -41,6 +41,8 @@ export const Container = styled.div<{ $show: boolean }>`
   width: 50%;
   justify-content: center;
   align-items: center;
-  display: ${({ $show }) => ($show ? "flex" : "none")};
-  animation: ${({ $show }) => ($show ? fadeIn : fadeOut)} 0.2s ease-in-out;
+  display: flex;
+  animation: ${({ $show }) => ($show ? fadeIn : fadeOut)} 0.1s ease-in-out;
+  visibility: ${({ $show }) => ($show ? "visible" : "hidden")};
+  transition: visibility 0.1s ease-in-out;
 `;

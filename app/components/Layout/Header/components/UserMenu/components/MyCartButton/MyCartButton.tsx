@@ -45,7 +45,6 @@ export default function CartContent() {
   }, [isOpen, toggleCart]);
 
   // Optional: Cart can be shown when a new product is added.
-
   // useEffect(() => {
   //   setIsOpen(showCart);
   // }, [showCart]);
@@ -58,7 +57,6 @@ export default function CartContent() {
           type={theme.buttons.nav}
         >
           <PiShoppingCart />
-          {/* Check count */}
           <ShoppingCartCount>{itemQuantity}</ShoppingCartCount>
         </IconButton>
       </CartButton>
@@ -71,51 +69,49 @@ export default function CartContent() {
           </IconButton>
         </Link>
       </CartButtonLink>
-      {isOpen && (
-        <CartContainer>
-          <h2>Shopping Cart</h2>
-          <ScrollableContent>
-            {cartItems.length ? (
-              cartItems.map((item) => (
-                <CartItem cartItem={item} size="sm" key={item.product.id} />
-              ))
-            ) : (
-              <h3>Your cart is empty :(</h3>
-            )}
-          </ScrollableContent>
-          {cartItems.length > 0 && (
-            <CartFooter>
-              <FlexBetween>
-                <span>Total</span>
-                <span>${total}</span>
-              </FlexBetween>
-              <ButtonGroup>
-                <Link href="/cart" passHref legacyBehavior>
-                  <Button
-                    onClick={() => setIsOpen(false)}
-                    as="a"
-                    type="secondary"
-                    size="lg"
-                  >
-                    View Cart
-                  </Button>
-                </Link>
-
-                <Link href="/" passHref legacyBehavior>
-                  <Button
-                    onClick={() => setIsOpen(false)}
-                    as="a"
-                    type="primary"
-                    size="lg"
-                  >
-                    Checkout
-                  </Button>
-                </Link>
-              </ButtonGroup>
-            </CartFooter>
+      <CartContainer $show={isOpen}>
+        <h2>Shopping Cart</h2>
+        <ScrollableContent>
+          {cartItems.length ? (
+            cartItems.map((item) => (
+              <CartItem cartItem={item} size="sm" key={item.product.id} />
+            ))
+          ) : (
+            <h3>Your cart is empty :(</h3>
           )}
-        </CartContainer>
-      )}
+        </ScrollableContent>
+        {cartItems.length > 0 && (
+          <CartFooter>
+            <FlexBetween>
+              <span>Total</span>
+              <span>${total}</span>
+            </FlexBetween>
+            <ButtonGroup>
+              <Link href="/cart" passHref legacyBehavior>
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  as="a"
+                  type="secondary"
+                  size="lg"
+                >
+                  View Cart
+                </Button>
+              </Link>
+
+              <Link href="/" passHref legacyBehavior>
+                <Button
+                  onClick={() => setIsOpen(false)}
+                  as="a"
+                  type="primary"
+                  size="lg"
+                >
+                  Checkout
+                </Button>
+              </Link>
+            </ButtonGroup>
+          </CartFooter>
+        )}
+      </CartContainer>
     </div>
   );
 }
