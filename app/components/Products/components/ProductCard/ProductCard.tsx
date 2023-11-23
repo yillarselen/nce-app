@@ -41,9 +41,10 @@ export default function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <Card>
+    <Card data-testid="product-card">
       <CardContainer>
         <FavButton
+          aria-label="product-fav-button"
           onClick={() => toggleFavorite(product)}
           type={theme.buttons.fav}
         >
@@ -52,6 +53,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <Link href="/product-detail">
           <ImageContainer>
             <Image
+              data-testid="product-image"
               src={product.image}
               sizes="100vw"
               style={{
@@ -72,9 +74,16 @@ export default function ProductCard({ product }: ProductCardProps) {
       </CardContainer>
 
       <CardFooter>
-        <PriceLabel>${product.price}</PriceLabel>
+        <PriceLabel>
+          <span aria-label="product-price">${product.price}</span>
+        </PriceLabel>
         <div>
-          <Button onClick={() => handleAdd(product)} type="primary" size="sm">
+          <Button
+            aria-label="add-product-button"
+            onClick={() => handleAdd(product)}
+            type="primary"
+            size="sm"
+          >
             <PiShoppingCart size={20} />
             <span>{addButtonText}</span>
           </Button>

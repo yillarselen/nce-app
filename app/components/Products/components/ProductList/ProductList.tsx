@@ -23,7 +23,7 @@ export default function ProductList({ products, loading }: ProductListProps) {
   };
 
   return (
-    <>
+    <div data-testid="product-list">
       <Grid>
         {products.slice(0, itemsToShow).map((product) => (
           <ProductCard key={product.id} product={product} />
@@ -31,11 +31,16 @@ export default function ProductList({ products, loading }: ProductListProps) {
       </Grid>
       {itemsToShow < products.length && !loading && (
         <FlexCenter>
-          <LoadMoreButton type="primary" size="lg" onClick={handleLoadMore}>
+          <LoadMoreButton
+            type="primary"
+            size="lg"
+            onClick={handleLoadMore}
+            data-testid="loadmore-button"
+          >
             Load More
           </LoadMoreButton>
         </FlexCenter>
       )}
-    </>
+    </div>
   );
 }

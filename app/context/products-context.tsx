@@ -9,11 +9,11 @@ interface ProductsContextProviderProps {
   children: React.ReactNode;
 }
 
-interface ProductsContext {
+export interface ProductsContext {
   isProductsLoading: boolean;
-  setIsProductsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  searchTerm: string;
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  handleSetIsProductLoading: (val: boolean) => void;
+  searchTerm?: string;
+  handleSetSearchTerm: (val: string) => void;
   products: Product[];
 }
 
@@ -36,6 +36,14 @@ export default function ProductsContextProvider({
 
   const debouncedUpdateFilteredProducts = debounce(updateFilteredProducts, 500);
 
+  const handleSetSearchTerm = (val: string) => {
+    setSearchTerm(val);
+  };
+
+  const handleSetIsProductLoading = (val: boolean) => {
+    setIsProductsLoading(val);
+  };
+
   useEffect(() => {
     if (searchTerm.length > 2) {
       debouncedUpdateFilteredProducts();
@@ -49,9 +57,9 @@ export default function ProductsContextProvider({
     <ProductsContext.Provider
       value={{
         isProductsLoading,
-        setIsProductsLoading,
+        handleSetIsProductLoading,
         searchTerm,
-        setSearchTerm,
+        handleSetSearchTerm,
         products,
       }}
     >

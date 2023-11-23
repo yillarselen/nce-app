@@ -27,7 +27,7 @@ export default function CartItem({ cartItem, size }: CartItemProps) {
   const { removeItemFromCart } = useShoppingCartContext();
 
   return (
-    <StyledCartItem size={size}>
+    <StyledCartItem size={size} role="cart-item">
       <Link href="/product-detail">
         <ImageContainer
           width={size === "sm" ? "5" : "8"}
@@ -43,7 +43,7 @@ export default function CartItem({ cartItem, size }: CartItemProps) {
             priority
             width={300}
             height={300}
-            alt=""
+            alt={cartItem.product.name}
           />
         </ImageContainer>
       </Link>
@@ -75,6 +75,7 @@ export default function CartItem({ cartItem, size }: CartItemProps) {
             {size === "sm" ? `Qty: ${cartItem.quantity}` : "In Stock"}
           </StyledBadge>
           <Button
+            aria-label="remove-product-button"
             onClick={() => removeItemFromCart(cartItem.product)}
             type="danger"
             size="md"

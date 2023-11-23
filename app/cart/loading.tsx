@@ -1,5 +1,5 @@
 import LoadingSpinner from "../components/Layout/UI/Spinner/Spinner";
 
 export default function Loading() {
-  return <LoadingSpinner />;
+  return <LoadingSpinner data-testid="loading-spinner" />;
 }

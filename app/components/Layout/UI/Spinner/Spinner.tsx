@@ -8,5 +8,12 @@ export default function LoadingSpinner({
   color,
   spinColor,
 }: SpinnerProps) {
-  return <SpinnerContainer size={size} color={color} spinColor={spinColor} />;
+  return (
+    <SpinnerContainer
+      size={size}
+      color={color}
+      spinColor={spinColor}
+      data-testid="loading-spinner"
+    />
+  );
 }

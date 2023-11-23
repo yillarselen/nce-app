@@ -41,7 +41,7 @@ export default function ItemQuantity({ item }: ItemQuantityProps) {
   }
 
   return (
-    <>
+    <div>
       <NumberInput>
         <IconButton
           disabled={!item.quantity}
@@ -51,7 +51,7 @@ export default function ItemQuantity({ item }: ItemQuantityProps) {
         >
           <PiMinus />
         </IconButton>
-        <span>{item.quantity}</span>
+        <span data-testid="quantity">{item.quantity}</span>
         <IconButton onClick={increment} size="md" $border>
           <PiPlus />
         </IconButton>
@@ -62,6 +62,6 @@ export default function ItemQuantity({ item }: ItemQuantityProps) {
       >
         {getOptions()}
       </QuantitySelect>
-    </>
+    </div>
   );
 }

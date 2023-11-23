@@ -11,5 +11,5 @@ export interface Product {
   category: string;
   brand: string;
   sku: string;
-  inventory: Inventory;
+  inventory?: Inventory;
 }

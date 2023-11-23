@@ -24,7 +24,11 @@ export default function FavoritesContainer() {
       {isFavoritesLoading ? (
         <LoadingSpinner />
       ) : favoriteItems?.length > 0 ? (
-        <ProductList products={favoriteItems} loading={isFavoritesLoading} />
+        <ProductList
+          products={favoriteItems}
+          loading={isFavoritesLoading}
+          data-testid="product-list"
+        />
       ) : (
         <h3 style={{ textAlign: "center" }}>Your favorites list is empty :(</h3>
       )}

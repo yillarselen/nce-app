@@ -8,18 +8,17 @@ import { useProductsContext } from "@/app/context/products-context";
 import LoadingSpinner from "../Layout/UI/Spinner/Spinner";
 
 export default function Products() {
-  const { products, isProductsLoading, setIsProductsLoading } =
+  const { products, isProductsLoading, handleSetIsProductLoading } =
     useProductsContext();
 
   useEffect(() => {
-    console.log(products);
-    if (products && products.length > 0) setIsProductsLoading(false);
-  }, [products, setIsProductsLoading]);
+    if (products && products.length > 0) handleSetIsProductLoading(false);
+  }, [products, handleSetIsProductLoading]);
 
   return (
     <Container>
       <IntroContainer>
-        <h2>Collection</h2>
+        <h2 data-testid="header-title">Collection</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

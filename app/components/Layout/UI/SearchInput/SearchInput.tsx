@@ -9,14 +9,12 @@ interface SearchInputProps {
 }
 
 export default function SearchInput({ show }: SearchInputProps) {
-  const { searchTerm, setSearchTerm } = useProductsContext();
+  const { searchTerm, handleSetSearchTerm } = useProductsContext();
 
   function handleSearch(event: ChangeEvent<HTMLInputElement>) {
     const searchTerm = event.target.value;
-    setSearchTerm(searchTerm);
+    handleSetSearchTerm(searchTerm);
   }
-
-  console.log(show);
 
   return (
     <Container $show={show}>
