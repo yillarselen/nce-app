@@ -3,12 +3,11 @@
 import React, { useState } from "react";
 import { Grid } from "../../../styles/Grid.styled";
 import ProductCard from "../ProductCard/ProductCard";
-import { useProductsContext } from "@/app/context/products-context";
 import { LoadMoreButton } from "@/app/components/styles/Button.styled";
 import { FlexCenter } from "@/app/components/styles/Flex.styled";
 import { Product } from "@/app/types/ProductTypes";
 
-const itemsToShowNumber = 6;
+const itemsToShowNumber = 8;
 
 interface ProductListProps {
   products: Product[];

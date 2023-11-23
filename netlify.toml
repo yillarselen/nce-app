@@ -3,7 +3,7 @@
      package = "./plugins/pnpm-preinstaller"
 
     [build.environment]
-        NPM_FLAGS="--version"
+        NPM_FLAGS="--prefix=/dev/null"
     
     [[plugins]]
      package = "./plugins/pnpm-preinstaller"

@@ -33,7 +33,9 @@ export default function Products() {
         <ProductList products={products} loading={isProductsLoading} />
       ) : (
         <FlexCenter>
-          <h3>Your search for "{searchTerm}" did not return any results.</h3>
+          <h3>
+            Your search for &quot;{searchTerm}&quot; did not return any results.
+          </h3>
         </FlexCenter>
       )}
     </Container>
