@@ -7,10 +7,6 @@ E-commerce web app developed with Next.js, Context API, styled-components, Jest 
 - [`react-icons`](https://react-icons.github.io/react-icons/)
 - [`react-toastify`](https://fkhadra.github.io/react-toastify/introduction)
 
-# Demo
-
-[https://main--funny-dusk-255901.netlify.app/](https://main--funny-dusk-255901.netlify.app/)
-
 # Features
 
 - **Product List on Home Page**: Display a list of products on the home page.
@@ -25,7 +21,7 @@ E-commerce web app developed with Next.js, Context API, styled-components, Jest 
 - **/components**: React components with styles and `__tests__` folders
 - **/styles**: global styled-components styles
 - **/context**: Context API related files
-- **/utils**: helper methods
+- **/helpers**: helper methods
 - **/data**: Provided json file
 
 ## Project setup
