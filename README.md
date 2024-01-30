@@ -1,6 +1,4 @@
-# E-commerce App
-
-E-commerce web app developed with Next.js, Context API, styled-components, Jest and React Testing Library.
+Web app developed with Next.js, Context API, styled-components, Jest and React Testing Library.
 
 ## Other dependencies
 
